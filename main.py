@@ -22,8 +22,8 @@ FILE_ID = "files/fzfborpiwvwg"
 @functions_framework.http
 def generate_quiz(request):
     data = request.get_json()
-    subject = data.get('subject')
-    unit = data.get('unit')
+    # subject = data.get('subject')
+    # unit = data.get('unit')
     num = data.get('num')
 
     if not subject or not unit or not num:
@@ -41,7 +41,7 @@ def generate_quiz(request):
 
         # 4. PROMPT ENGINEERING: Ask for a SINGLE JSON object
         prompt = f"""
-        Create a {num} question MCQ quiz based on Unit {unit} of {subject} using the provided file.
+        Create a {num} questions MCQ quiz based on using the provided file.
         
         Return a SINGLE JSON object with this exact schema:
         {{
