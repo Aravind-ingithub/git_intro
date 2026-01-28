@@ -51,8 +51,7 @@ def generate_quiz(request):
         # 5. PARSING: Direct JSON parsing (No splitting required)
         # Because we used response_mime_type="application/json", response.text is guaranteed to be clean JSON.
         quiz_data = json.loads(response.text)
-
-        return jsonify(quiz_data)
+        return jsonify(quiz_data), 200
 
     except Exception as e:
         # Log the error for debugging
