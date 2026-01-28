@@ -50,7 +50,7 @@ def generate_quiz(request):
         # Because we used response_mime_type="application/json", response.text is guaranteed to be clean JSON.
         quiz_data = json.loads(response.text)
 
-        return jsonify(quiz_data)
+        return jsonify({response: quiz_data})
 
     except Exception as e:
         # Log the error for debugging
