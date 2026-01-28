@@ -24,7 +24,7 @@ def generate_quiz(request):
     data = request.get_json()
     # subject = data.get('subject')
     # unit = data.get('unit')
-    num = data.get('num')
+    num = data.get('query')
 
     if not num:
         return jsonify({'error': 'Missing required fields'}), 400
