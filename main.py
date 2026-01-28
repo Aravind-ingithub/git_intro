@@ -1,12 +1,12 @@
 import functions_framework
 import os
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import request, jsonify
+# from flask_cors import CORS
 import google.generativeai as genai
 import json
 
-app = Flask(__name__)
-CORS(app)
+#app = Flask(__name__)
+#CORS(app)
 
 # 1. SECURITY: Load API key from environment variable
 # Run this in terminal before starting app: export GOOGLE_API_KEY="your_actual_key"
@@ -20,8 +20,8 @@ genai.configure(api_key=api_key)
 # Note: 'files/...' references expire after 48 hours usually. Ensure the file exists.
 FILE_ID = "files/hwsye8u3p23q" 
 
-@app.route('/generate_quiz', methods=['POST'])
-#@functions_framework.http
+# @app.route('/generate_quiz', methods=['POST'])
+@functions_framework.http
 def generate_quiz(request):
     data = request.get_json()
     # subject = data.get('subject')
