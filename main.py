@@ -16,7 +16,7 @@ genai.configure(api_key=api_key)
 
 # 2. MODEL: Use a valid model name (e.g., gemini-1.5-flash)
 # Note: 'files/...' references expire after 48 hours usually. Ensure the file exists.
-FILE_ID = "files/fzfborpiwvwg" 
+FILE_ID = "files/6ug4lrk0c7nk" 
 
 # @app.route('/generate_quiz', methods=['POST'])
 @functions_framework.http
@@ -41,22 +41,7 @@ def generate_quiz(request):
 
         # 4. PROMPT ENGINEERING: Ask for a SINGLE JSON object
         prompt = f"""
-        Create a {num} questions MCQ quiz based on using the provided file.
-        
-        Return a SINGLE JSON object with this exact schema:
-        {{
-            "questions": [
-                {{
-                    "id": 1,
-                    "question": "Question text here",
-                    "options": {{ "A": "...", "B": "...", "C": "...", "D": "..." }}
-                }}
-            ],
-            "answer_key": {{
-                "1": "A",
-                "2": "B"
-            }}
-        }}
+        You are a simple AI assistant who answers user question {num}
         """
 
         response = model.generate_content([file_ref, prompt])
